@@ -27,7 +27,7 @@ def bayesian_optimization_fit(df1, df2, predictor_columns, task_name, n_calls=50
 
     # Create a unique directory name with a timestamp
     timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
-    opt_dir = f'./optimization_results_{timestamp}'
+    opt_dir = f'./output/optimization_results_{timestamp}'
     os.makedirs(opt_dir, exist_ok=True)
 
     print(f"Results will be saved in: {opt_dir}")
@@ -42,9 +42,15 @@ def bayesian_optimization_fit(df1, df2, predictor_columns, task_name, n_calls=50
             print(f"\nProcessing fold {fold}/{n_splits}")
             X_train, X_test = X[train_index], X[test_index]
             y_train, y_test = y_true[train_index], y_true[test_index]
+
+            # Create a subdirectory for this fold
+            fold_opt_dir = os.path.join(opt_dir, f"fold_{fold}")
+            os.makedirs(fold_opt_dir, exist_ok=True)
+
+            # Perform optimization for this fold
             best_theta, best_rho = optimize_weights(X_train, y_train, predictor_columns,
                                                     task_name + f"_fold{fold}", n_calls, tol,
-                                                    n_iter_no_change, n_repeats, opt_dir)
+                                                    n_iter_no_change, n_repeats, fold_opt_dir)
             # Evaluate on the test set
             y_pred = X_test @ best_theta
             rho_test = spearmanr(y_pred, y_test)[0]
@@ -158,7 +164,7 @@ def optimize_weights(X, y_true, predictor_columns, task_name, n_calls, tol, n_it
             return rho if not np.isnan(rho) else -1e10
 
         bounds = {f'theta{i}': (0, 1) for i in range(n_predictors)}
-        opt = BayesianOptimization(objective, pbounds=bounds, random_state=None, verbose=0)
+        opt = BayesianOptimization(objective, pbounds=bounds, random_state=None, verbose=0, allow_duplicate_points=True)
         opt.maximize(init_points=min(5, n_calls), n_iter=max(n_calls - 5, 0))
 
         if opt.max['target'] > best_rho:
@@ -192,7 +198,7 @@ def optimize_weights(X, y_true, predictor_columns, task_name, n_calls, tol, n_it
 
 def main():
     # Example usage (use actual file paths and variable names in practice):
-    cross_validate = False
+    cross_validate = True
     df1 = pd.read_csv('/home/wallacelab/complexity-experiment-paper/Complexity Scores/ranking_complexity_scores.csv')
     df2 = pd.read_csv('/home/wallacelab/complexity-experiment-paper/Embeddings/CLIP-CBA/filtered_things_complexity_embedding.csv')
     predictor_columns = [col for col in df2.columns if col != 'image']

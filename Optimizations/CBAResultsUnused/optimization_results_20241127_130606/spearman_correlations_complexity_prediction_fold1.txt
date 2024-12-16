@@ -1,4 +1,0 @@
-Task: complexity_prediction_fold1
-Initial weights:
-11: 1
-Initial Spearman rho = 0.37454522983334093

@@ -1,0 +1,20 @@
+Task: complexity_prediction_fold2
+Initial weights:
+Chaotic: 1
+Initial Spearman rho = 0.4197863806351114
+
+Best overall Spearman rho = 0.5662500686221471
+Best overall weights:
+Irregularity: 0.0
+Disorganized: 0.0
+Asymmetry: 0.0
+Chaotic: 0.2100076202017413
+Randomness: 0.0
+Variability: 0.11552044490242101
+Multicolored: 0.2802478328181557
+Heterogeneity: 0.0
+Grainy: 0.0
+Isotropy: 0.0
+Cluttered: 0.1139762692595263
+Ambiguity: 0.0
+Intricate: 0.2802478328181557
