@@ -1,7 +1,7 @@
 # Investigating the Emergence of Complexity from the Dimensional Structure of Mental Representations
 
 ### Objective
-This project assesses the ability of CLIP-Human Behavior Assessment (CLIP-HBA), which was created by fine-tuning CLIP-IQA on behavioral embeddings developed from human similarity judgements, to predict human visual complexity judgements.
+This project compares the ability of CLIP-Human Behavior Assessment (CLIP-HBA), which was created by fine-tuning CLIP-IQA on behavioral embeddings developed from human similarity judgements, and CLIP-Complexity Behavior Assessment (CLIP-CBA), which was created by prompting the base CLIP-IQA model with words derived from existing literature, to predict human visual complexity judgements.
 
 ### Prerequisites
 Running this code requires:
