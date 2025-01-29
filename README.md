@@ -23,8 +23,10 @@ The embeddings folder contains two folders with embeddings for all three aforeme
 * [CLIP-HBA](https://github.com/stephenczhao/CLIP-HBA-Finetune.git)
 
 ### Experiments
-* The Experiments folder contains the code for the THINGS ranking experiment and the bistable 2-AFC experiment. 
-* The Data subfolder contains the human complexity ratings for both experiments.
+* The Experiments folder contains the code for the two experiments used to obtain human visual complexity perception data. Image choice and response time in seconds are recorded.
+    1. THINGS ranking experiment: Selects 50 random images from the THINGS dataset and presents them all at once. Participants select images from most complex to least complex. This process is repeated three times with image shuffling.
+    2. Bistable 2-AFC experiment: Presents 36 pairs of images (one bistable image, one style-transferred control). Participants select the more complex image. Each pair is shown randomly five times.
+* The Data subfolder contains the ground truth human complexity ratings for both experiments.
 
 ### Optimizations
 * The Bayesian subfolder contains the code used to extract the optimal weights from a csv of embeddings and a target set of complexity scores. 
