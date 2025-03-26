@@ -1,0 +1,12 @@
+{
+    "input_dim": 66,
+    "hidden_layers": [
+        96,
+        48
+    ],
+    "dropout_rate": 0.1,
+    "learning_rate": 0.001,
+    "weight_decay": 1e-05,
+    "num_epochs": 250,
+    "early_stopping_patience": 20
+}

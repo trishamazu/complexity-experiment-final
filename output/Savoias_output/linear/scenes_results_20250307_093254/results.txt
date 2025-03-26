@@ -1,0 +1,5 @@
+Average RMSE: 18.1638
+Average R² Score: 0.2566
+Average Spearman Correlation: 0.6225
+Top Features (RFE over 100 runs): [26, 11, 28, 31, 8, 40, 46, 51, 10, 6]
+Top Features (LASSO over 100 runs): [40, 2, 26, 46, 20, 38, 8, 43, 6, 19]

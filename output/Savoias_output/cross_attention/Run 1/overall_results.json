@@ -1,0 +1,30 @@
+{
+    "Suprematism_output": {
+        "spearman_correlation": 0.6363636363636362,
+        "best_val_loss": 148.72749710083008
+    },
+    "Interior_Design_output": {
+        "spearman_correlation": 0.9483326481409007,
+        "best_val_loss": 226.51502799987793
+    },
+    "Advertisement_output": {
+        "spearman_correlation": -0.20700050831175662,
+        "best_val_loss": 726.4470977783203
+    },
+    "Visualizations_output": {
+        "spearman_correlation": 0.47518796992481205,
+        "best_val_loss": 1026.9240798950195
+    },
+    "Scenes_output": {
+        "spearman_correlation": 0.7822490210961238,
+        "best_val_loss": 1104.0542602539062
+    },
+    "Objects_output": {
+        "spearman_correlation": 0.764949283129575,
+        "best_val_loss": 947.0575866699219
+    },
+    "Art_output": {
+        "spearman_correlation": 0.7387621827913676,
+        "best_val_loss": 1163.7158660888672
+    }
+}
